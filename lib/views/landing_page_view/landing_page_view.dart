@@ -3,19 +3,29 @@ import 'package:finance_mobile_application/utils/utils.dart';
 import 'package:finance_mobile_application/utils/widgets/widgets.dart';
 import 'package:finance_mobile_application/views/landing_page_view/widget/overview.dart';
 import 'package:finance_mobile_application/views/landing_page_view/widget/profile_highlights.dart';
+import 'package:finance_mobile_application/views/recent_transactions_view/recent_transactions_view.dart';
 import 'package:flutter/material.dart';
 
 class LandingPageView extends StatelessWidget {
-  const LandingPageView({super.key, required this.size});
+  const LandingPageView({
+    super.key,
+    required this.size,
+  });
 
   final Size size;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-            ProfileHighlights(size: size),
+            ProfileHighlights(
+              size: size,
+              routeTo: RecentTransactionsView(
+                size: size,
+              ),
+            ),
             verticalSpacer(size.height * 0.05),
             Overview(
               size: size,
@@ -26,17 +36,19 @@ class LandingPageView extends StatelessWidget {
           child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Icon(
               Icons.home_outlined,
+              color: Pallete().purple,
               size: size.height * 0.05,
             ),
             Icon(
               Icons.credit_card_outlined,
+              color: Pallete().purple,
               size: size.height * 0.05,
             ),
             Button(
                 borderRadius: 10.0,
                 width: size.height * 0.04,
                 height: size.height * 0.04,
-                color: Pallete().black,
+                color:Pallete().purple,
                 text: '+',
                 onPressed: () {}),
             Text(
@@ -45,6 +57,7 @@ class LandingPageView extends StatelessWidget {
             ),
             Icon(
               Icons.person_outlined,
+              color: Pallete().purple,
               size: size.height * 0.05,
             ),
           ]),

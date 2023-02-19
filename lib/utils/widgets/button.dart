@@ -9,13 +9,15 @@ class Button extends StatelessWidget {
       required this.height,
       required this.color,
       required this.text,
-      required this.onPressed});
+      required this.onPressed,
+      this.buttonFont});
   final Color color;
   final double borderRadius;
   final double height;
   final double width;
   final String text;
   final onPressed;
+  double? buttonFont;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +32,12 @@ class Button extends StatelessWidget {
             child: Center(
                 child: Text(
               text,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .copyWith(color: Colors.white, letterSpacing: 1),
+              style: buttonFont != null
+                  ? TextStyle(fontSize: buttonFont, letterSpacing: 1, color: Colors.white)
+                  : Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .copyWith(color: Colors.white, letterSpacing: 1),
             )),
           )),
     );

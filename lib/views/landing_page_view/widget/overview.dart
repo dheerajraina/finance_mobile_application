@@ -14,9 +14,28 @@ class Overview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Overview",
-            style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Text(
+                "Overview",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(fontWeight: FontWeight.bold, color: Pallete().purple),
+              ),
+              Icon(
+                Icons.notifications_active_outlined,
+                color: Pallete().purple,
+              ),
+              horizontalSpacer(size.width * 0.2),
+              Text(
+                "Oct 19,2023",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontWeight: FontWeight.bold, color: Pallete().purple),
+              ),
+            ],
           ),
           verticalSpacer(size.height * 0.01),
           CustomCard(
@@ -39,7 +58,7 @@ class Overview extends StatelessWidget {
                         title: Text('Sent Payment', style: TextStyle(fontWeight: FontWeight.bold)),
                         subtitle: Text(maxLines: 2, 'Sendinf payment to clients'),
                       )),
-                  Text('INR 200'),
+                  Text('INR 200', style: TextStyle(color: Pallete().purple)),
                 ],
               ),
               width: size.width * 0.9),
@@ -67,11 +86,10 @@ class Overview extends StatelessWidget {
                         ),
                         subtitle: Text(maxLines: 2, 'Recieving salary from company'),
                       )),
-                  Text(
-                    'INR 2000',
-                    maxLines: 2,
-                    overflow: TextOverflow.clip,
-                  ),
+                  Text('INR 2000',
+                      maxLines: 2,
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(color: Pallete().purple)),
                 ],
               ),
               width: size.width * 0.9),
@@ -99,14 +117,15 @@ class Overview extends StatelessWidget {
                         ),
                         subtitle: Text(maxLines: 2, 'Loan for a car'),
                       )),
-                  Text(
-                    'INR 20',
-                    maxLines: 2,
-                    overflow: TextOverflow.clip,
-                  ),
+                  Text('INR 20',
+                      maxLines: 2,
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(color: Pallete().purple)),
                 ],
+
               ),
               width: size.width * 0.9),
+          verticalSpacer(size.height*0.2),
         ],
       ),
     );
